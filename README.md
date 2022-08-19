@@ -13,6 +13,7 @@ core is by tailJS
 3. `node index`
 
 * Now you can connect to your server through any brawl stars client with frida injection.
+* Premade client soon?
 
 ## Its Loading now!!
 no Longer absolute core which is hacc
