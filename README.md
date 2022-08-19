@@ -12,7 +12,6 @@ The world's first Brawl Stars private server open source core written in NodeJS
 
 * Now you can connect to your server through any brawl stars client with frida injection.
 
-## Why it's not loading?
-Because it's core. You need implement all messages and logic by yourself.
-
-![screen](/Screens/console.png)
+## Its Loading now!!
+no Longer absolute core which is hacc
+you can accually load in
