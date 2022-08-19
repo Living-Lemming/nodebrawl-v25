@@ -6,7 +6,7 @@ const Messages = new MessageFactory();
 
 
 server.on("connection", async(client) => {
-    console.log("A wild connection appeared!");
+    console.log("[INFO] A wild connection appeared!");
     const packets = Messages.getPackets();
     const packetizer = new Packetizer();
     
@@ -21,29 +21,29 @@ server.on("connection", async(client) => {
             };
             if(packets.indexOf(String(message.id)) != -1){
                 try{
-                    console.log(`Gotcha ${message.id} packet!`);
+                    console.log(`[PACKET] Gotcha ${message.id} packet!`);
                     Messages.handle(message.id)(message)
                 }catch(e){
                     console.log(e)
                 }
             }else{
-                console.log(`Gotcha undefined ${message.id} packet!`)
+                console.log(`[PACKET] Gotcha undefined ${message.id} packet!`)
             }
         })
     });
 
     client.on('end', async () => {
-        return console.error('Client disconnected.')
+        return console.error('[INFO] Client disconnected.')
     });
 
     client.on('error', async error => {
         try {
-            console.error('A wild error!');
+            console.error('[ERROR] A wild error!');
             console.log(error);
             client.destroy()
         } catch (e) { }
     })
 });
 
-server.once('listening', () => console.log('Server started!'));
+server.once('listening', () => console.log('[INFO] Server started!'));
 server.listen(9339)
