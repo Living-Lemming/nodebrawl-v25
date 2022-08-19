@@ -1,5 +1,5 @@
 # nodebrawl-core
-The world's first Brawl Stars private server open source server written in NodeJS
+The world's first v25 Brawl Stars open source server written in NodeJS
 
 [Core](https://github.com/tailsjs/nodebrawl-core) is by [TailJS](https://github.com/tailsjs)
 
