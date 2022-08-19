@@ -19,8 +19,3 @@ The world's first v25 Brawl Stars open source server written in NodeJS
 
 * Now you can connect to your server through any brawl stars client with frida injection.
 * Premade client soon?
-
-## Its Loading now!!
-no Longer absolute core which is hacc
-
-you can accually load in
