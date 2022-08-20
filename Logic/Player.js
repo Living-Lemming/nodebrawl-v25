@@ -29,6 +29,7 @@ class Players {
   
   // Resources
   let PlayerEXP = 99999;
+  let TokensDoubler = 0;
   let PlayerTrophies = 0;
   let Gems = 0;
   let Gold = 0;
@@ -44,10 +45,17 @@ class Players {
   let Region = "CZ";
   let ContentCreator = "LivingLemming";
 
+  let NameChangePrice = 0;
+
   if UnlockType == "All" {
       for (let i = 0; i in BrawlerID; i++) {
           BrawlerUnlockedState[i.toString] = 1;
       }
+  }
+
+  BrawlerSkins = {};
+  for (let id = 0; id in BrawlerID; id++) {
+      BrawlerSkins.concat({f'{id}': 0})
   }
 
   let ErrorCode;
