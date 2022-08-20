@@ -48,16 +48,25 @@ class Players {
   let NameChangePrice = 0;
   let NameChangeCooldownTimer = 0;
 
+  let BrawlerPowerLevel = 1;
+  let BrawlerTrophiesForRank = 0;
+  let BrawlerTrophies = 0;
+  let BrawlerUpgradePoints = 0;
+
   if UnlockType == "All" {
       for (let i = 0; i in BrawlerID; i++) {
           BrawlerUnlockedState[i.toString] = 1;
       }
   }
 
-  BrawlerSkins = {};
-  for (let id = 0; id in BrawlerID; id++) {
-      BrawlerSkins.concat({f'{id}': 0})
-  }
+  let BrawlerSpgUnlock = {};
+  let starpower = 76
+
+  let BrawlerTrophies = {};
+  BrawlerTrophies.forEach(element => BrawlerTrophies.concat({element.toString(): BrawlerTrophiesForRank}));
+
+  let BrawlerSkins = {};
+  BrawlerSkins.forEach(element => BrawlerSkins.concat({element.toString(): 0}));
 
   let ErrorCode;
   let Maintenence = false;
