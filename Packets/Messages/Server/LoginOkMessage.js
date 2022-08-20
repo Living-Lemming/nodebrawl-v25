@@ -1,18 +1,20 @@
 const ByteStream = require("../../../ByteStream");
 const Messaging = require("../../../ByteStream/Messaging");
+const Player = require("../../../Logic/Player");
 
 module.exports = {
     id: 20100,
     send: function(client){
         let buffer = new ByteStream();
+        let player = new Player();
 
-        buffer.writeInt(0); // High ID
-        buffer.writeInt(0); // Low ID
+        buffer.writeInt(player.HighID); // High ID
+        buffer.writeInt(player.LowID); // Low ID
       
         buffer.writeInt(0);
         buffer.writeInt(0);
       
-        buffer.writeString("TOKEN");
+        buffer.writeString(player.Token);
         buffer.writeString(); // Facebook ID
         buffer.writeString(); // Gamecenter ID
       
@@ -33,7 +35,7 @@ module.exports = {
         buffer.writeInt(0);
       
         buffer.writeString();
-        buffer.writeString("CZ");
+        buffer.writeString(player.Region);
         buffer.writeString();
       
         buffer.writeInt(1);
