@@ -46,6 +46,7 @@ class Players {
   let ContentCreator = "LivingLemming";
 
   let NameChangePrice = 0;
+  let NameChangeCooldownTimer = 0;
 
   if UnlockType == "All" {
       for (let i = 0; i in BrawlerID; i++) {
