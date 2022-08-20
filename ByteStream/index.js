@@ -152,7 +152,12 @@ class ByteStream {
 
         this.writeInt(-1);
     }
-
+	
+    writeScId(x, y) {
+	writeVInt(x);
+	writeVInt(y);
+    }
+	
     ensureCapacity(capacity) {
         var bufferLength = this.buffer.length;
 
