@@ -4,9 +4,13 @@ The world's first v25 Brawl Stars open source server written in NodeJS
 [Core](https://github.com/tailsjs/nodebrawl-core) is by [TailJS](https://github.com/tailsjs)
 
 ## Progress
+### Packets
 * LoginMessage finished
 * LoginOkMessage finished
 * OwnHomeDataMessage in progress...
+### Logic
+* Player.js finished
+* Working on Files
 
 ## Requirements
 * [NodeJS](https://nodejs.org/)
