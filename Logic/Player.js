@@ -53,6 +53,12 @@ class Players {
   let BrawlerTrophies = 0;
   let BrawlerUpgradePoints = 0;
 
+  let BannedIPs = {
+      01 : "",
+      02 : "",
+      03 : ""
+  }
+
   if UnlockType == "All" {
       for (let i = 0; i in BrawlerID; i++) {
           BrawlerUnlockedState[i.toString] = 1;
