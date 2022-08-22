@@ -40,7 +40,9 @@ class Players {
 
   // Boxes
   let BrawlBoxes = 0;
+  let TokensNeededForBrawlBox = 100;
   let BigBoxes = 0;
+  let StarTokensNeededForBigBox = 10;
 
   let Region = "CZ";
   let ContentCreator = "LivingLemming";
