@@ -10,8 +10,7 @@ module.exports = {
         let player = new Player();
         if (player.maintenance) {
              
-        }
-        else {
+        } else {
             LoginOkMessage.send(client);
             OwnHomeDataMessage.send(client);
         }
