@@ -33,7 +33,7 @@ server.on("connection", async(client) => {
     });
 
     client.on('end', async () => {
-        return console.error('[INFO] Client disconnected.')
+        return console.log('[INFO] Client disconnected.')
     });
 
     client.on('error', async error => {
@@ -46,4 +46,4 @@ server.on("connection", async(client) => {
 });
 
 server.once('listening', () => console.log('[INFO] Server started!'));
-server.listen(9339)
+server.listen(9339);
