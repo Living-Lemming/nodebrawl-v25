@@ -57,7 +57,7 @@ class Players {
       01 : "",
       02 : "",
       03 : ""
-  }
+  };
 
   if UnlockType == "All" {
       for (let i = 0; i in BrawlerID; i++) {
