@@ -77,7 +77,6 @@ class Players {
 
   let ErrorCode;
   let Maintenence = false;
-  let MaintenenceTime = 0;
 
   let BattleResult = 0;
   let GameType = 0;
