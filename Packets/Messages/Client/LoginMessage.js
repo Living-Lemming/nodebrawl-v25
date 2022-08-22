@@ -7,8 +7,13 @@ module.exports = {
     id: 10101,
     handle: function(client){
         let data = new ByteStream(client.payload);
-        let player = new Player()
-        LoginOkMessage.send(client);
-        OwnHomeDataMessage.send(client);
+        let player = new Player();
+        if (player.maintenance) {
+             
+        }
+        else {
+            LoginOkMessage.send(client);
+            OwnHomeDataMessage.send(client);
+        }
     }
 }
