@@ -53,6 +53,7 @@ class Players {
   let BrawlerTrophies = 0;
   let BrawlerUpgradePoints = 0;
 
+  // Doesnt work because i couldnt get the ips from Networking XD
   let BannedIPs = {
       01 : "",
       02 : "",
