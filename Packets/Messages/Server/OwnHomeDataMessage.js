@@ -26,8 +26,11 @@ module.exports = {
         
         // Selected Skins Array
         buffer.writeVInt(player.BrawlerSkins.length);
+        player.BrawlerSkins.forEach(element => buffer.writeScId(29, player.BrawlerSkins[element]);
+        
         // Unlocked Skins Array
         buffer.writeVInt(player.SkinsID.length);
+        player.SkinsID.forEach(element => buffer.writeScId(29, element);
         
         buffer.writeVInt(0); // Leaderboard Global TID (Asia, Global)
         buffer.writeVInt(0);
@@ -54,7 +57,54 @@ module.exports = {
         buffer.writeVInt(player.NameChangePrice);
         buffer.writeVInt(player.NameChangeCooldownTimer);
         
-        // Work in progress...
+        let count = Shop.offers.length;
+        buffer.writeVInt(count);
+        count.forEach(function () {
+            
+        });
+        
+        buffer.writeVInt(0);
+        
+        buffer.writeVInt(200);
+        buffer.writeVInt(0); // Time till bonus tokens
+        
+        buffer.writeVInt(0);
+        
+        buffer.writeVInt(player.Tickets);
+        buffer.writeVInt(0);
+        
+        buffer.writeScId(16, player.BrawlerID);
+        
+        buffer.writeString(player.Region);
+        buffer.writeString(player.ContentCreator);
+        
+        buffer.writeVInt(0);
+        buffer.writeVInt(0);
+        buffer.writeVInt(0);
+        buffer.writeVInt(0);
+        buffer.writeVInt(0);
+        
+        buffer.writeVInt(2019049);
+        
+        buffer.writeVInt(player.TokensNeededForBrawlBox);
+        buffer.writeVInt(player.StarTokensNeededForBigBox);
+        
+        /*
+        for item in Shop.boxes:
+            self.writeVint(item['Cost'])
+            self.writeVint(item['Multiplier'])
+        
+        self.writeVint(Shop.token_doubler['Cost'])
+        self.writeVint(Shop.token_doubler['Amount'])
+        */
+        
+        buffer.writeVInt(500);
+        buffer.writeVInt(50);
+        buffer.writeVInt(999900);
+        
+        buffer.writeVInt(0);
+        
+        buffer.writeVInt(20);
 
         let message = new Messaging(client.client);
         message.send({
