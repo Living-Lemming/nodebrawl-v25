@@ -6,9 +6,34 @@ module.exports = {
     send: function(client){
         let buffer = new ByteStream();
 
-        buffer.writeInt(24);
-        for(let i = 0; i < 24; i++)
-            buffer.writeInt(1);
+        buffer.writeInt(1);
+      
+        buffer.writeString("");
+      
+        buffer.writeString();
+        
+        buffer.writeString("");
+        buffer.writeString("");
+        buffer.writeString("Crypto Not Disabled...");
+      
+        buffer.writeInt(0);
+        buffer.writeBoolean(false);
+      
+        buffer.writeString();
+        buffer.writeString();
+      
+        buffer.writeInt(0);
+        buffer.writeInt(3);
+      
+        buffer.writeString();
+        buffer.writeString();
+      
+        buffer.writeInt(0);
+        buffer.writeInt(0);
+      
+        buffer.writeBoolean(false);
+        buffer.writeBoolean(false);
+
         
 
         let message = new Messaging(client.client);
