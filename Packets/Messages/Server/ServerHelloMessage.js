@@ -34,8 +34,6 @@ module.exports = {
         buffer.writeBoolean(false);
         buffer.writeBoolean(false);
 
-        
-
         let message = new Messaging(client.client);
         message.send({
             id: this.id,
