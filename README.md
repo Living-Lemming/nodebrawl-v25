@@ -16,7 +16,7 @@ The world's first v25 Brawl Stars open source server written in NodeJS
 * Player.js finished
 * Working on Files
 ### Crypto
-* Maybe?!?!/1/11/!?!?1
+* Maybe soon?!?!/1/11/!?!?1
 
 ## Requirements
 * [NodeJS](https://nodejs.org/)
