@@ -20,6 +20,7 @@ The world's first v25 Brawl Stars open source server written in NodeJS
 
 ## Requirements
 * [NodeJS](https://nodejs.org/)
+* [TweetNacl](https://github.com/dchest/tweetnacl-js#installation) - `npm install tweetnacl`
 * Brain
 
 ## Setting up
