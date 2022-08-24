@@ -7,8 +7,7 @@ The world's first v25 Brawl Stars open source server written in NodeJS
 ### Packets
 * LoginMessage finished
 * ClientHelloMessage finished
-
-
+***
 * ServerHelloMessage finished
 * LoginOkMessage finished
 * LoginFailedMessage finished
