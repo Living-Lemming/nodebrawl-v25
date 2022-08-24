@@ -6,7 +6,11 @@ The world's first v25 Brawl Stars open source server written in NodeJS
 ## Progress
 ### Packets
 * LoginMessage finished
+* ClientHelloMessage finished
+
+* ServerHelloMessage finished
 * LoginOkMessage finished
+* LoginFailedMessage finished
 * OwnHomeDataMessage in progress...
 ### Logic
 * Player.js finished
