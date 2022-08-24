@@ -9,7 +9,7 @@ module.exports = {
         let data = new ByteStream(client.payload);
         let player = new Player();
         if (player.maintenance) {
-             
+             console.log("[MAINTENENCE] A player tried to join in a maintenence L them")
         } else {
             LoginOkMessage.send(client);
             OwnHomeDataMessage.send(client);
