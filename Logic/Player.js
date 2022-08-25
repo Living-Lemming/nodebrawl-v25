@@ -1,19 +1,19 @@
 // If you dont know what something means, dont change it :)
 class Players {
   // Player Data
-  let HighID = 0;
-  let LowID = 0;
-  let Token = "TOKEN";
-  let BoxID = 0;
-  let MapID = 0;
-  let SlotIndex = 0;
-  let RoomID = 0;
-  let BrawlerID;
-  let SkinsID;
-  let CardSkillsID;
-  let CardUnlockID;
-  let BrawlerUnlockedState = {};
-
+  HighID = 0;
+  LowID = 0;
+  Token = "TOKEN";
+  BoxID = 0;
+  MapID = 0;
+  SlotIndex = 0;
+  RoomID = 0;
+  BrawlerID;
+  SkinsID;
+  CardSkillsID;
+  CardUnlockID;
+  BrawlerUnlockedState = {};
+    
   // Brawler Data
   SkinsID = Files.getSkinsID();
   BrawlerID = Files.getCharactersID();
@@ -22,66 +22,65 @@ class Players {
 
   ///////////////////////
   // Configurable Data //
-  let Name = "LivingLemming";
-  let NameColour = 0;
-  let DoNotDisturb = 0;
-  let UnlockType = "All";
+  Name = "LivingLemming";
+  NameColour = 0;
+  DoNotDisturb = 0;
+  UnlockType = "All";
   
   // Resources
-  let PlayerEXP = 99999;
-  let TokensDoubler = 0;
-  let PlayerTrophies = 0;
-  let Gems = 0;
-  let Gold = 0;
-  let MaxPlayerTrophiesGained = 0;
-  let StarPoints = 0;
-  let Tickets = 0;
-  let Tokens = 0;
+  PlayerEXP = 99999;
+  TokensDoubler = 0;
+  PlayerTrophies = 0;
+  Gems = 0;
+  Gold = 0;
+  MaxPlayerTrophiesGained = 0;
+  StarPoints = 0;
+  Tickets = 0;
+  Tokens = 0;
 
   // Boxes
-  let BrawlBoxes = 0;
-  let TokensNeededForBrawlBox = 100;
-  let BigBoxes = 0;
-  let StarTokensNeededForBigBox = 10;
+  BrawlBoxes = 0;
+  TokensNeededForBrawlBox = 100;
+  BigBoxes = 0;
+  StarTokensNeededForBigBox = 10;
 
-  let Region = "CZ";
-  let ContentCreator = "LivingLemming";
+  Region = "CZ";
+  ContentCreator = "LivingLemming";
 
-  let NameChangePrice = 0;
-  let NameChangeCooldownTimer = 0;
+  NameChangePrice = 0;
+  NameChangeCooldownTimer = 0;
 
-  let BrawlerPowerLevel = 1;
-  let BrawlerTrophiesForRank = 0;
-  let BrawlerTrophies = 0;
-  let BrawlerUpgradePoints = 0;
+  BrawlerPowerLevel = 1;
+  BrawlerTrophiesForRank = 0;
+  BrawlerTrophies = 0;
+  BrawlerUpgradePoints = 0;
 
-  // Doesnt work because i couldnt get the ips from Networking XD
-  let BannedIPs = {
+  BannedIPs = {
       01 : "",
       02 : "",
       03 : ""
   };
 
-  if UnlockType == "All" {
-      for (let i = 0; i in BrawlerID; i++) {
+  if (UnlockType == "All") {
+      for (i = 0; i in BrawlerID; i++) {
           BrawlerUnlockedState[i.toString] = 1;
       }
   }
 
-  let BrawlerSpgUnlock = {};
-  let starpower = 76
+  BrawlerSpgUnlock = {};
+  starpower = 76
 
-  let BrawlerTrophies = {};
+  BrawlerTrophies = {};
   BrawlerTrophies.forEach(element => BrawlerTrophies.concat({element.toString(): BrawlerTrophiesForRank}));
 
-  let BrawlerSkins = {};
+  BrawlerSkins = {};
   BrawlerSkins.forEach(element => BrawlerSkins.concat({element.toString(): 0}));
 
-  let ErrorCode;
-  let Maintenence = false;
+  ErrorCode;
+  Maintenence = false;
 
-  let BattleResult = 0;
-  let GameType = 0;
+  BattleResult = 0;
+  GameType = 0;
 
   bot1 = 0;
   bot1n = null;
@@ -94,3 +93,4 @@ class Players {
   bot5 = 0;
   bot5n = null;
 }
+
