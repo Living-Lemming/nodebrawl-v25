@@ -6,7 +6,6 @@ const Messages = new MessageFactory();
 
 const PORT = 9339;
 
-
 server.on("connection", async(client) => {
     client.log = function(text){
         return console.log(`[${this.remoteAddress.split(":").slice(-1)}] >> ${text}`)
