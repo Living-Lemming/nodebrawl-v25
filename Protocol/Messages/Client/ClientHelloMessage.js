@@ -1,6 +1,7 @@
-const ServerHelloMessage = new (require("../Server/ServerHelloMessage"))
+const ServerHelloMessage = new (require("../Server/ServerHelloMessage"));
+const PiranhaMessage = require("../../PiranhaMessage");
 
-class ClientHelloMessage {
+class ClientHelloMessage extends PiranhaMessage {
     constructor(client, bytes) {
         super(bytes)
         this.client = client;
