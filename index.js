@@ -1,6 +1,6 @@
 const net = require("net");
 const Packetizer = require("./ByteStream/packetizer");
-const MessageFactory = require("./Packets/MessageFactory");
+const MessageFactory = require("./Protocol/MessageFactory");
 const server = new net.Server();
 const Messages = new MessageFactory();
 
@@ -11,10 +11,11 @@ server.on("connection", async(client) => {
         return console.log(`[${this.remoteAddress.split(":").slice(-1)}] >> ${text}`)
     };
 
-    client.log(`[INFO] A wild connection appeared!`);
+    client.log(`A wild connection appeard!`);
     const packets = Messages.getPackets();
     const packetizer = new Packetizer();
-    
+
+
     client.on('data', async(chunk) => {
         packetizer.packetize(chunk, (packet) => {
             let message = {
@@ -26,19 +27,24 @@ server.on("connection", async(client) => {
             };
             if(packets.indexOf(String(message.id)) != -1){
                 try{
-                    client.log(`[PACKET] Gotcha ${message.id}!`);
-                    Messages.handle(message.id)(message)
+                    const packet = new (Messages.handle(message.id))(client, message.payload);
+
+                    client.log(`Gotcha ${message.id} (${packet.constructor.name}) packet! `);
+                    
+                    packet.decode();
+                    packet.process()
+
                 }catch(e){
                     console.log(e)
                 }
             }else{
-                client.log(`[PACKET] Undefined ${message.id} received!`)
+                client.log(`Gotcha undefined ${message.id} packet!`)
             }
         })
     });
 
     client.on('end', async () => {
-        return client.log(`[INFO] Client disconnected.`)
+        return client.log(`Client disconnected.`)
     });
 
     client.on('error', async error => {
@@ -48,7 +54,9 @@ server.on("connection", async(client) => {
             client.destroy()
         } catch (e) { }
     })
-});
 
-server.once('listening', () => console.log(`[SERVER] Server started on ${PORT} port!`));
+})
+
+
+server.once('listening', () => console.log(`Server started on ${PORT} port!`));
 server.listen(PORT)
