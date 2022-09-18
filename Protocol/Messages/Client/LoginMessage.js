@@ -1,18 +1,23 @@
 const ByteStream = require("../../../ByteStream");
-const LoginOkMessage = require("../Server/LoginOkMessage");
-const OwnHomeDataMessage = require("../Server/OwnHomeDataMessage");
-const Player = require("../../../Logic/Player");
+const LoginOkMessage = new (require("../Server/LoginOkMessage"));
+const OwnHomeDataMessage = new (require("../Server/OwnHomeDataMessage"));
 
-module.exports = {
-    id: 10101,
-    handle: function(client){
-        let data = new ByteStream(client.payload);
-        let player = new Player();
-        if (player.maintenance) {
-             console.log("[MAINTENENCE] A player tried to join in a maintenence L them");
-        } else {
-            LoginOkMessage.send(client);
-            OwnHomeDataMessage.send(client);
-        }
+class LoginMessage {
+    constructor(client, bytes){
+        super(bytes)
+        this.client = client;
+        this.id = 10100
+        this.version = 0
+    }
+
+    decode(){
+        // this.readInt()
+    }
+
+    process(){
+        LoginOkMessage.send(this.client);
+        OwnHomeDataMessage.send(this.client);
     }
 }
+
+module.exports = ClientHelloMessage
