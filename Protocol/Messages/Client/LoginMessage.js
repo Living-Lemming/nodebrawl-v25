@@ -1,8 +1,9 @@
 const ByteStream = require("../../../ByteStream");
 const LoginOkMessage = new (require("../Server/LoginOkMessage"));
 const OwnHomeDataMessage = new (require("../Server/OwnHomeDataMessage"));
+const PiranhaMessage = require("../../PiranhaMessage");
 
-class LoginMessage {
+class LoginMessage extends PiranhaMessage {
     constructor(client, bytes){
         super(bytes)
         this.client = client;
