@@ -37,4 +37,4 @@ class LoginFailedMessage {
     }
 }
 
-module.exports = ServerHelloMessage
+module.exports = LoginFailedMessage
