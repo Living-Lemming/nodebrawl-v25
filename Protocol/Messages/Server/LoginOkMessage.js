@@ -2,17 +2,21 @@ const ByteStream = require("../../../ByteStream");
 const Messaging = require("../../../ByteStream/Messaging");
 const Player = require("../../../Logic/Player");
 
-module.exports = {
-    id: 20100,
-    send: function(client){
-        let buffer = new ByteStream();
-        let player = new Player();
+class LoginOkMessage {
+    constructor(client, player, bytes){
+        super(client, bytes)
+        this.client = client
+        this.player = player
+        this.id = 20100
+        this.version = 0
+    }
 
-        buffer.writeInt(player.HighID); // High ID
-        buffer.writeInt(player.LowID); // Low ID
+    encode(){
+        buffer.writeInt(this.player.HighID); // High ID
+        buffer.writeInt(this.player.LowID); // Low ID
       
-        buffer.writeInt(0);
-        buffer.writeInt(0);
+        buffer.writeInt(this.player.HighID);
+        buffer.writeInt(this.player.LowID);
       
         buffer.writeString(player.Token);
         buffer.writeString(); // Facebook ID
@@ -54,13 +58,8 @@ module.exports = {
         buffer.writeVInt(1);
       
         buffer.writeString();
-        
 
-        let message = new Messaging(client.client);
-        message.send({
-            id: this.id,
-            buffer,
-            version: client.version
-        })
     }
 }
+
+module.exports = LoginOkMessage
