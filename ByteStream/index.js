@@ -58,8 +58,7 @@ class ByteStream{
         return null;
     }
     
-    /** idk it works or not
-     */
+    /* idk it works or not */
     readVInt() {
         let result = 0,
             shift = 0,
