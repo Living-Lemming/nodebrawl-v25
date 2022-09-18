@@ -1,10 +1,20 @@
-const ByteStream = require("../../../ByteStream");
-const ServerHelloMessage = require("../Server/ServerHelloMessage");
+const ServerHelloMessage = new (require("../Server/ServerHelloMessage"))
 
-module.exports = {
-    id: 10100,
-    handle: function(client){
-        let data = new ByteStream(client.payload);
-        ServerHelloMessage.send(client);
+class ClientHelloMessage {
+    constructor(client, bytes) {
+        super(bytes)
+        this.client = client;
+        this.id = 10100
+        this.version = 0
+    }
+
+    decode() {
+        
+    }
+
+    process() {
+        ServerHelloMessage.send(this.client)
     }
 }
+
+module.exports = ClientHelloMessage
