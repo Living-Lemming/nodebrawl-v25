@@ -1,4 +1,6 @@
-class LoginOkMessage {
+const PiranhaMessage = require('../../PiranhaMessage')
+
+class LoginOkMessage extends PiranhaMessage {
     constructor(client, player, bytes){
         super(client, bytes)
         this.client = client
@@ -54,7 +56,6 @@ class LoginOkMessage {
         this.writeVInt(1);
       
         this.writeString();
-
     }
 }
 
