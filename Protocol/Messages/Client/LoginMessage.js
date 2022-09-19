@@ -1,4 +1,3 @@
-const ByteStream = require("../../../ByteStream");
 const LoginOkMessage = new (require("../Server/LoginOkMessage"));
 const OwnHomeDataMessage = new (require("../Server/OwnHomeDataMessage"));
 const PiranhaMessage = require("../../PiranhaMessage");
@@ -23,4 +22,4 @@ class LoginMessage extends PiranhaMessage {
     }
 }
 
-module.exports = ClientHelloMessage
+module.exports = LoginMessage
