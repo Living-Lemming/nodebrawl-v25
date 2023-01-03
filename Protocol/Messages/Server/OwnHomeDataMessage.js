@@ -1,28 +1,28 @@
 const PiranhaMessage = require('../../PiranhaMessage')
+const Player = require('../../../Logic/Player');
 
 class OwnHomeDataMessage extends PiranhaMessage {
-    constructor(client, player, bytes){
+    constructor(client, bytes){
         super(client, bytes)
         this.client = client
-        this.player = player
         this.id = 20100
         this.version = 0
     }
 
-    encode(){
+    encode() {
         this.writeVInt(0);
         this.writeVInt(0);
       
-        this.writeVInt(this.player.PlayerTrophies); // Player Trophies
-        this.writeVInt(this.player.MaxPlayerTrophiesGained); // Player Max Reached Trophies
+        this.writeVInt(Player.PlayerTrophies); // Player Trophies
+        this.writeVInt(Player.MaxPlayerTrophiesGained); // Player Max Reached Trophies
       
         this.writeVInt(0);
         this.writeVInt(95); // Trophy Road Reward
       
-        this.writeVInt(this.player.PlayerEXP); // Player EXP
+        this.writeVInt(Player.PlayerEXP); // Player EXP
       
         this.writeScId(28, 0); // Player Icon ID
-        this.writeScId(43, this.player.NameColour); // Player Name Colour ID
+        this.writeScId(43, Player.NameColour); // Player Name Colour ID
         
         this.writeVInt(0);
         
@@ -40,7 +40,7 @@ class OwnHomeDataMessage extends PiranhaMessage {
         this.writeVInt(1);
         this.writeBoolean(true);
         
-        this.writeVInt(this.player.TokensDoubler);
+        this.writeVInt(Player.TokensDoubler);
         this.writeVInt(1209599); // Season End Timer
         this.writeVInt(0);
         this.writeVInt(0);
@@ -54,8 +54,8 @@ class OwnHomeDataMessage extends PiranhaMessage {
         this.writeBoolean(true);
         this.writeBoolean(true);
         
-        this.writeVInt(this.player.NameChangePrice);
-        this.writeVInt(this.player.NameChangeCooldownTimer);
+        this.writeVInt(Player.NameChangePrice);
+        this.writeVInt(Player.NameChangeCooldownTimer);
         
         this.writeVInt(0);
         
@@ -66,13 +66,13 @@ class OwnHomeDataMessage extends PiranhaMessage {
         
         this.writeVInt(0);
         
-        this.writeVInt(this.player.Tickets);
+        this.writeVInt(Player.Tickets);
         this.writeVInt(0);
         
-        this.writeScId(16, this.player.BrawlerID);
+        this.writeScId(16, Player.BrawlerID);
         
-        this.writeString(player.Region);
-        this.writeString(player.ContentCreator);
+        this.writeString(Player.Region);
+        this.writeString(Player.ContentCreator);
         
         this.writeVInt(0);
         this.writeVInt(0);
@@ -82,8 +82,8 @@ class OwnHomeDataMessage extends PiranhaMessage {
         
         this.writeVInt(2019049);
         
-        this.writeVInt(player.TokensNeededForBrawlBox);
-        this.writeVInt(player.StarTokensNeededForBigBox);
+        this.writeVInt(Player.TokensNeededForBrawlBox);
+        this.writeVInt(Player.StarTokensNeededForBigBox);
         
         this.writeVInt(0); // self.writeVint(Shop.token_doubler['Cost'])
         this.writeVInt(0); // self.writeVint(Shop.token_doubler['Amount'])
