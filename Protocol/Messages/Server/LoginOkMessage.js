@@ -1,22 +1,22 @@
 const PiranhaMessage = require('../../PiranhaMessage')
+const Player = require('../../../Logic/Player');
 
 class LoginOkMessage extends PiranhaMessage {
-    constructor(client, player, bytes){
+    constructor(client, bytes){
         super(client, bytes)
         this.client = client
-        this.player = player
         this.id = 20100
-        this.version = 0
+        this.version = 1
     }
 
     encode(){
-        this.writeInt(this.player.HighID); // High ID
-        this.writeInt(this.player.LowID); // Low ID
+        this.writeInt(Player.HighID); // High ID
+        this.writeInt(Player.LowID); // Low ID
       
-        this.writeInt(this.player.HighID);
-        this.writeInt(this.player.LowID);
+        this.writeInt(Player.HighID);
+        this.writeInt(Player.LowID);
       
-        this.writeString(player.Token);
+        this.writeString(Player.Token);
         this.writeString(); // Facebook ID
         this.writeString(); // Gamecenter ID
       
@@ -37,7 +37,7 @@ class LoginOkMessage extends PiranhaMessage {
         this.writeInt(0);
       
         this.writeString();
-        this.writeString(player.Region);
+        this.writeString(Player.Region);
         this.writeString();
       
         this.writeInt(1);
