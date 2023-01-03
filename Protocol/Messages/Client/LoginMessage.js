@@ -1,19 +1,19 @@
 const LoginOkMessage = new (require("../Server/LoginOkMessage"));
 const OwnHomeDataMessage = new (require("../Server/OwnHomeDataMessage"));
 const PiranhaMessage = require("../../PiranhaMessage");
+const Player = require("../../../Logic/Player");
 
 class LoginMessage extends PiranhaMessage {
-    constructor(client, player, bytes){
+    constructor(client, bytes) {
         super(bytes)
         this.client = client;
-        this.player = player;
         this.id = 10100
         this.version = 0
     }
 
     decode(){
-        this.player.HighID = this.readInt();
-        this.player.LowID = this.readInt();
+        Player.HighID = this.readInt();
+        Player.LowID = this.readInt();
     }
 
     process(){
