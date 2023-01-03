@@ -2,10 +2,9 @@ const PiranhaMessage = require("../../PiranhaMessage");
 const LoginFailedMessage = new (require('../Server/LoginFailedMessage'))()
 
 class ClientHelloMessage extends PiranhaMessage {
-    constructor(client, player, bytes) {
+    constructor(client, bytes) {
         super(bytes)
         this.client = client;
-        this.player = player
         this.id = 10100
         this.version = 0
     }
