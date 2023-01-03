@@ -1,10 +1,11 @@
 const PiranhaMessage = require('../../PiranhaMessage')
+const Player = require('../../../Logic/Player');
 
 class LoginFailedMessage extends PiranhaMessage {
-    constructor(client, player, bytes, msg){
+    constructor(client, bytes, msg) {
         super(client, bytes)
         this.client = client
-        this.player = player
+        this.player = Player
         this.msg = msg
         this.id = 20103
         this.version = 0
@@ -23,7 +24,7 @@ class LoginFailedMessage extends PiranhaMessage {
         # 18 = Chinese Text?
     */
 
-    encode(){
+    encode() {
         this.writeInt(this.player.ErrorCode);
         this.writeString('');
         
@@ -54,4 +55,3 @@ class LoginFailedMessage extends PiranhaMessage {
 }
 
 module.exports = LoginFailedMessage
-
