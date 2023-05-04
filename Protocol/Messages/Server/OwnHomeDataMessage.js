@@ -134,6 +134,60 @@ class OwnHomeDataMessage extends PiranhaMessage {
         for (const x of [150, 400, 1200, 2600]) { // Shop Gold Offers Amount
             this.writeVInt(x);
         }
+        
+        this.writeVInt(0);
+        this.writeVInt(200); // Max Tokens
+        this.writeVInt(20); // Plus Tokens
+        
+        this.writeVInt(8640);
+        this.writeVInt(10);
+        this.writeVInt(5);
+        
+        this.writeVInt(6);
+        
+        this.writeVInt(50);
+        this.writeVInt(604800);
+        
+        this.writeBoolean(true); // Box Boolean
+        
+        this.writeVInt(0); // Array
+        
+        this.writeVInt(1); // Menu Theme
+        this.writeInt(1);
+        this.writeInt(41000000 + 10); // Theme ID
+        
+        this.writeInt(0);
+        this.writeInt(1);
+        
+        this.writeVInt(0); // Array
+        
+        this.writeVInt(0);
+        
+        this.writeBoolean(false);
+        
+        this.writeVInt(0);
+        this.writeVInt(0);
+        
+        this.writeVInt(Player.HighID);
+        this.writeVInt(Player.LowID);
+        
+        this.writeVInt(0);
+        this.writeVInt(0);
+        
+        this.writeVInt(0);
+        this.writeVInt(0);
+        
+        this.writeString('LivingLemming'); // Name
+        this.writeVInt(0); // Name State (1 if choose, 0 if set)
+        
+        this.writeVInt(0);
+        
+        this.writeVInt(8);
+        
+        this.writeVInt(0); // Unlocked Brawlers & Resources Array
+        
+        this.writeVInt(5); // CSV ID
+        this.writeVInt(1); // Resource ID
     }
 }
 
