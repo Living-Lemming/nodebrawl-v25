@@ -95,6 +95,10 @@ class OwnHomeDataMessage extends PiranhaMessage {
         this.writeVInt(0);
         
         this.writeVInt(20);
+        
+        for (const x of Array(5).keys()) {
+            this.writeVInt(x);
+        }
     }
 }
 
