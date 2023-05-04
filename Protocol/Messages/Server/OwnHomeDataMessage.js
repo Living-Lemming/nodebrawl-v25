@@ -1,12 +1,12 @@
-const PiranhaMessage = require('../../PiranhaMessage')
+const PiranhaMessage = require('../../PiranhaMessage');
 const Player = require('../../../Logic/Player');
 
 class OwnHomeDataMessage extends PiranhaMessage {
     constructor(client, bytes){
-        super(client, bytes)
-        this.client = client
-        this.id = 20100
-        this.version = 0
+        super(client, bytes);
+        this.client = client;
+        this.id = 20100;
+        this.version = 0;
     }
 
     encode() {
@@ -104,6 +104,36 @@ class OwnHomeDataMessage extends PiranhaMessage {
         this.writeBytes('01010100b8a90a000f0702ffffffff0000000000');
         
         this.writeVInt(0); // Array
+        
+        this.writeVInt(8);
+        for (const x of [20, 35, 75, 140, 290, 480, 800, 1250]) {
+            this.writeVInt(x);
+        }
+        
+        this.writeVInt(8);
+        for (const x of [1, 2, 3, 4, 5, 10, 15, 20]) {
+            this.writeVInt(x);
+        }
+        
+        this.writeVInt(3);
+        for (const x of [10, 30, 80]) { // Tickets Price
+            this.writeVInt(x);
+        }
+        
+        this.writeVInt(3);
+        for (const x of [20, 35, 75, 140, 290, 480, 800, 1250]) { // Tickets Amount
+            this.writeVInt(x);
+        }
+        
+        this.writeVInt(4); // Shop Gold Offers Amount
+        for (const x of [20, 50, 140, 260]) { // Shop Gold Offers Cost
+            this.writeVInt(x);
+        }
+        
+        this.writeVInt(4); // Shop Gold Offers Amount
+        for (const x of [150, 400, 1200, 2600]) { // Shop Gold Offers Amount
+            this.writeVInt(x);
+        }
     }
 }
 
