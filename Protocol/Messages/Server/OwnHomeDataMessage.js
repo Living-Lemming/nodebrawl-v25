@@ -57,35 +57,35 @@ class OwnHomeDataMessage extends PiranhaMessage {
         this.writeVInt(Player.NameChangePrice);
         this.writeVInt(Player.NameChangeCooldownTimer);
         
-        this.writeVInt(0);
+        this.writeVInt(0); // Shop Offers Array
         
-        this.writeVInt(0);
+        this.writeVInt(0); // Array
         
         this.writeVInt(200);
         this.writeVInt(0); // Time till bonus tokens
         
+        this.writeVInt(0); // Array
+        
+        this.writeVInt(Player.Tickets); // Tickets
         this.writeVInt(0);
         
-        this.writeVInt(Player.Tickets);
-        this.writeVInt(0);
+        this.writeScId(16, Player.BrawlerID); // Selected Brawler
         
-        this.writeScId(16, Player.BrawlerID);
+        this.writeString(Player.Region); // Location
+        this.writeString(Player.ContentCreator); // Supported Content Creator
         
-        this.writeString(Player.Region);
-        this.writeString(Player.ContentCreator);
-        
-        this.writeVInt(0);
-        this.writeVInt(0);
-        this.writeVInt(0);
-        this.writeVInt(0);
-        this.writeVInt(0);
+        this.writeVInt(0); // Array
+        this.writeVInt(0); // Array
+        this.writeVInt(0); // Array
+        this.writeVInt(0); // Array
+        this.writeVInt(0); // Array
         
         this.writeVInt(2019049);
         
         this.writeVInt(Player.TokensNeededForBrawlBox);
         this.writeVInt(Player.StarTokensNeededForBigBox);
         
-        this.writeVInt(0); // self.writeVint(Shop.token_doubler['Cost'])
+        this.writeVInt(0); // self.writeVint(Shop.token_doubler['Cost']) (Boxes Area Multiplier + Cost)
         this.writeVInt(0); // self.writeVint(Shop.token_doubler['Amount'])
         
         this.writeVInt(500);
@@ -99,6 +99,11 @@ class OwnHomeDataMessage extends PiranhaMessage {
         for (const x of Array(5).keys()) {
             this.writeVInt(x);
         }
+        
+        // Event logic in hex cuz im lazy
+        this.writeBytes('01010100b8a90a000f0702ffffffff0000000000');
+        
+        this.writeVInt(0); // Array
     }
 }
 
